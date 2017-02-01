@@ -1,0 +1,13 @@
+<! DOCTYPE html>
+
+{% load staticfiles %}
+
+<html>
+	<head>
+	    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+	    <script src="{% static 'js/jquery.css' %}"></script>
+		<title>About Page</title>
+	</head>
+	{{ username }} ... serving image<br/><br/><br/>
+	<img src='{{ MEDIA_URL }}nash4.jpeg' alt="Nash image"/>
+</html>

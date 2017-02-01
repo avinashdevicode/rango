@@ -1,0 +1,31 @@
+<! DOCTYPE html>
+
+<html>
+	<head>
+		<title>Rango</title>
+	</head>
+	
+	<body>
+	    <h1>Most viewed Pages</h1>
+		<div>
+			{% if category %}
+				<h1>{{category.name}}</h1>
+				{% if pages %}
+				<ul>
+					{% for page in pages %}
+						<li><a href="{{page.url}}">{{page.title}}</a></li>
+					{% endfor %}
+				</ul>
+				{% else %}
+					<p>No pages to show</p>
+				{% endif %}
+			<a href="/rango/add_page/{{category.slug}}/"> Add_page</a>
+			{% else %}
+				<p>Specified Category Does not exist</p>
+			{% endif %}
+		</div>
+		<div>
+			<a href="/">Home page</a><br/>
+		</div>
+	</body>
+</html>

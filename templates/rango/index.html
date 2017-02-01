@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+	<head>
+		<title>Rango</title>
+		<!-- CSS -->
+		<link rel="stylesheet" href="{% static 'css/base.css' %}"/>
+		<!-- JavaScript -->
+		<script src="{% static 'js/jquery.js' %}"></script>
+	</head>
+	<body>
+		<h1>Most liked Categories</h1>
+		<div>
+			{% if categories %}
+			<ul>
+				{% for category in categories %}
+					<li>
+					 <a href="/rango/category/{{category.slug}}/">{{ category.name }}</a>
+					</li>	
+				{% endfor %}
+			{% else %}
+			</ul>
+			   <p>No Categories to display</p>>
+			{% endif %}
+			<p><a href="/rango/add_category/">Add Category</a></p>
+		</div>
+		<div>
+			{% if pages %}
+			    <h1>Most Viewed Pages</h1>
+				<ul>
+				{% for page in pages %}
+					<li><a href="{{page.url}}">{{page.title}}</a></li>
+				{% endfor %}
+				</ul>
+			{% else %}
+			<p>NO pages found</p>
+			{% endif %}
+		</div>
+		<div>
+			<a href="/rango/about/">about</a><br/>
+			<img src="{% static 'images/nash3.jpg' %}"
+				alt="picture of Nash" />
+		</div>
+	</body>
+</html>
